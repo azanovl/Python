@@ -1,4 +1,11 @@
-my_list = [22, 6.756, 5+6j, "str", [1, 2, "r", "g", 45], (34, 32, 7, 8, 5),
-           {"a", "k", "fg", "rty"}, {1:"J", 2:"F", 3:"M", 4:"A"}, False, ]
-for i, element in enumerate(my_list):
-    print(type(element), element)
+def my_func(x_1, x_2):
+    if x_2 == 0:
+        x_3 = "На ноль делить нельзя!"
+    else:
+        x_3 = x_1 / x_2
+    return x_3
+
+a = float(input("Для выполнения операции деления числе введите делимое: "))
+b = float(input("Для выполнения операции деления числе введите делитель: "))
+
+print(my_func(a, b))
