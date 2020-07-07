@@ -1,18 +1,26 @@
-my_list = [7, 5, 3, 3, 2]
-print ("The current rating is " + ", ".join(map(str, my_list)))
-new_el = float(input("Please, enter a new element to add to the rating: "))
-new_list = []
-for i in my_list:
-    if new_el <= i:
-        new_list.append(i)
-    elif new_el > i:
-        new_list.append(new_el)
-        break
+def my_func():
+    sum = 0
+    while True:
+        try:
+            my_str = input("Enter the digits separated by a space or 'q' for finish: ")
+            my_list = my_str.split()
+            for i in my_list:
+                if i.lower() == "q":
+                    break
+                else:
+                    i = float(i)
+                    sum += i
+            print(f"{sum:.2f}")
+            i = str(i)
+            if i.lower() == "q":
+                break
+        except ValueError:
+            print(f"{sum:.2f}")
+            print("Error! Enter only digits for processing or 'q' for finish.")
 
-if new_el not in new_list:
-    new_list.append(new_el)
-else:
-    for i in range(len(new_list)-1, len(my_list)):
-        new_list.append(my_list[i])
+my_func()
 
-print("The new rating is " + ", ".join(map(str, new_list)))
+
+
+
+
