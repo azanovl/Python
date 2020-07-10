@@ -1,5 +1,4 @@
-user_string = input("Наберите несколько слов, разделяя их пробелами: ")
-i = 0
-for el in user_string.split():
-    i += 1
-    print(f"{i}: {el[:10]}")
+my_list = [2, 2, 2, 7, 23, 1, 44, 44, 3, 2, 10, 7, 4, 11]
+print([el for el in my_list if my_list.count(el) == 1])
+
+

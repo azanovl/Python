@@ -1,4 +1,9 @@
-my_list = [22, 6.756, 5+6j, "str", [1, 2, "r", "g", 45], (34, 32, 7, 8, 5),
-           {"a", "k", "fg", "rty"}, {1:"J", 2:"F", 3:"M", 4:"A"}, False, ]
-for i, element in enumerate(my_list):
-    print(type(element), element)
+from sys import argv
+
+hours, w_rate, bonus = argv[1:]
+
+print("Выработка в часах: ", hours)
+print("Ставка заработной платы: ", w_rate)
+print("Премия: ", bonus)
+print((int(hours) * int(w_rate)) + int(bonus))
+
