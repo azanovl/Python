@@ -8,12 +8,11 @@ for i in range(1, 4):
 
 print(goods_list)
 
-val = []
 for index in range(len(card_pattern)):
+    val = []
     for i in range(len(goods_list)):
         val.append(goods_list[i][1].get(card_pattern[index]))
     analyse_d.update({card_pattern[index]: val})
-    val = []
 print('*' * 100)
 print(analyse_d)
 
