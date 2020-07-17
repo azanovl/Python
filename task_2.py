@@ -1,17 +1,11 @@
-user_string = input("Enter a list of values separated by a space in the string: ")
-user_list = user_string.split(" ")
-format_list = []
+class Road:
 
-for i in user_list:
-    if user_list.index(i) == 0:
-        format_list.append(user_list[user_list.index(i) + 1])
-        format_list.append(user_list[user_list.index(i)])
-    elif user_list.index(i) == len(user_list) - 1 and len(user_list) != len(format_list):
-        format_list.append(user_list[user_list.index(i)])
-    elif user_list.index(i) % 2 == 0:
-        format_list.append(user_list[user_list.index(i) + 1])
-        format_list.append(user_list[user_list.index(i)])
+    def __init__(self, length, width, layers=5):
+        self._length = length
+        self._width = width
+        self.layers = layers
+        mass = self._length * self._width * self.layers
+        print(f"При длине: {length} м.,  ширине: {width} м. и количестве слоев: {layers} "
+              f"\nнеобходимо {mass} кг. асфальта. ")
 
-print(f"The origin list before processing: {', '.join(user_list)}")
-print(f"The new list after processing:     {', '.join(format_list)}")
-
+Road(20, 30, 56)
