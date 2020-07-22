@@ -1,17 +1,31 @@
-user_string = input("Enter a list of values separated by a space in the string: ")
-user_list = user_string.split(" ")
-format_list = []
+from abc import ABC, abstractmethod
 
-for i in user_list:
-    if user_list.index(i) == 0:
-        format_list.append(user_list[user_list.index(i) + 1])
-        format_list.append(user_list[user_list.index(i)])
-    elif user_list.index(i) == len(user_list) - 1 and len(user_list) != len(format_list):
-        format_list.append(user_list[user_list.index(i)])
-    elif user_list.index(i) % 2 == 0:
-        format_list.append(user_list[user_list.index(i) + 1])
-        format_list.append(user_list[user_list.index(i)])
+class Apparel(ABC):
+    @abstractmethod
+    def consumption(self):
+        pass
 
-print(f"The origin list before processing: {', '.join(user_list)}")
-print(f"The new list after processing:     {', '.join(format_list)}")
+    def __add__(self, other):
+        return round((self.consumption + other.consumption), 2)
 
+class Suit(Apparel):
+    def __init__(self, h):
+        self.h = h
+
+    @property
+    def consumption(self):
+        return round((2 * self.h + 0.3), 2)
+
+class Coat(Apparel):
+    def __init__(self, v):
+        self.v = v
+
+    @property
+    def consumption(self):
+        return round((self.v / 6.5 + 0.3), 2)
+
+suit = Suit(1.85)
+coat = Coat(48)
+print(suit.consumption)
+print(coat.consumption)
+print(suit + coat)
